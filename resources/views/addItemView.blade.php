@@ -7,24 +7,14 @@
 </head>
 
 <body>
-
     @include('templates/header')
-
     <div id="wrap" class="container">
         <div style="width: 60%" class="container">
             <div class="page-header">
-                <h2>Add an item to auction...</h2>
+                <h3>Add an item to auction...</h3>
             </div>
-                
                 @include('templates/errors')
-
                 <form class="form-horizontal" action="" method="POST">
-                    <div class="form-group">
-                        <label for="itemId" class="col-sm-3 control-label">Item Id.</label>
-                        <div class="col-sm-9">
-                            <input type="number" class="form-control" id="itemId" name="id" placeholder="E.g. 199" value="199" />
-                        </div>
-                    </div>
                     <div class="form-group">
                         <label for="itemName" class="col-sm-3 control-label">Name of the item</label>
                         <div class="col-sm-9">
@@ -39,11 +29,11 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="itemStartBidDatetime" class="col-sm-3 control-label">Start bid amount</label>
+                        <label for="itemStartBidAmount" class="col-sm-3 control-label">Start bid amount</label>
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <div class="input-group-addon">&#8369;</div>
-                                <input type="number" class="form-control" name="start_bid_amount" id="itemStartBidDatetime" placeholder="E.g. 100" value="12345" />
+                                <input type="number" class="form-control" name="start_bid_amount" id="itemStartBidAmount" placeholder="E.g. 100" value="12345" />
                                 <div class="input-group-addon">.00</div>
                             </div>
                         </div>
@@ -76,14 +66,11 @@
                             <input type="submit" class="btn btn-primary" id="submit" />
                         </div>
                     </div>
-                    <input type="hidden" name="account_id" value="2" />
                 </form>
             </div>
         </div>
-
     @include('templates/footer')
     @include('templates/scripts')
-    
 </body>
 
 </html>

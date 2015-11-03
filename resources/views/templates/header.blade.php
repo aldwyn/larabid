@@ -3,7 +3,7 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="{{ asset('/') }}"><span
 				class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
-				Fsoft Bidding Engine</a>
+				LaraBid</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -34,12 +34,13 @@
 						<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         @if (true)
-                            <li><a href="/addItemView">Add an item for auction</a></li>
+                            <li><a href="{{ asset('/item/create') }}">Add an item for auction</a></li>
                             <li role="separator" class="divider"></li>
                             @if (false)
 	                            <li><a href="">Logout</a></li>
 	                        @else
-                            	<li><a href="/login">Sign in</a></li>
+                            	<li><a href="{{ asset('/login') }}">Sign in</a></li>
+                                <li><a href="{{ asset('/register') }}">Register</a></li>
                             @endif
                         @endif
                     </ul>

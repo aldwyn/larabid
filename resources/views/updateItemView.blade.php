@@ -7,43 +7,39 @@
 </head>
 
 <body>
-
     @include('templates/header')
-
     <div id="wrap" class="container">
         <div style="width: 60%" class="container">
             <div class="page-header">
-                <h2>Update an item to auction...</h2>
+                <h3>Update an item to auction...</h2>
             </div>
-            
             @include('templates/errors')
-
             <form class="form-horizontal" action="<c:url value='/updateItem' />" method="POST">
                 <div class="form-group">
                     <label for="itemId" class="col-sm-3 control-label">Item Id.</label>
                     <div class="col-sm-9">
-                        <input type="number" class="form-control" id="itemId" name="item_id" placeholder="E.g. 199" value="${item.item_id}" />
+                        <input type="number" class="form-control" id="itemId" name="item_id" placeholder="E.g. 199" value="{{ $item->id }}" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="itemName" class="col-sm-3 control-label">Name of the item</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="itemName" name="item_name" placeholder="E.g. Toothbrush" value="${item.item_name}" />
+                        <input type="text" class="form-control" id="itemName" name="item_name" placeholder="E.g. Toothbrush" value="{{ $item->name }}" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="itemDescription" class="col-sm-3 control-label">Item description
                     </label>
                     <div class="col-sm-9">
-                        <textarea rows="2" class="form-control" id="itemDescription" name="item_description" placeholder="Write a little persuading description about the item...">${item.item_description}</textarea>
+                        <textarea rows="2" class="form-control" id="itemDescription" name="item_description" placeholder="Write a little persuading description about the item...">{{ $item->description }}</textarea>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="itemDescription" class="col-sm-3 control-label">Start bid amount</label>
+                    <label for="itemStartBidAmount" class="col-sm-3 control-label">Start bid amount</label>
                     <div class="col-sm-9">
                         <div class="input-group">
-                            <div class="input-group-addon">$</div>
-                            <input type="number" class="form-control" name="start_bid_amount" id="itemDescription" placeholder="E.g. 100" value="${item.start_bid_amount}" />
+                            <div class="input-group-addon">&#8369;</div>
+                            <input type="number" class="form-control" name="start_bid_amount" id="itemStartBidAmount" placeholder="E.g. 100" value="{{ $item->start_bid_amount }}" />
                             <div class="input-group-addon">.00</div>
                         </div>
                     </div>
@@ -80,10 +76,8 @@
             </form>
         </div>
     </div>
-    
     @include('templates/footer')
     @include('templates/scripts')
-
 </body>
 
 </html>

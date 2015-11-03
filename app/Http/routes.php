@@ -11,22 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index', ['items' => []]);
-});
-
-Route::get('/items/{id}', function($id) {
-	return view('itemView');
-});
+Route::get('/', 'ItemController@index');
 
 Route::get('/login', function() {
 	return view('login');
 });
 
-Route::get('/addItem', function() {
-	return view('addItemView');
+Route::get('/register', function() {
+	return view('signup');
 });
 
-Route::get('/updateItem', function() {
-	return view('updateItemView');
-});
+// Authentication routes...
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+// Registration routes...
+Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+Route::resource('item', 'ItemController');
