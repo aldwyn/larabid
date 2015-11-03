@@ -49,11 +49,15 @@
             </table>
             <div class="row">
                 <div class="col-md-2">
-                    <a href="" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>&nbsp; Delete</a>
+                    <form action="{{ asset('/item/' . $item->id) }}" method="POST">
+                        {!! csrf_field() !!}
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" href="{{ asset('/item') }}" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp; Delete</button></td>
+                    </form>
                 </div>
                 <div class="col-md-8"></div>
                 <div class="col-md-2">
-                    <a href="" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp; Update</a>
+                    <a href="{{ asset('/item/' . $item->id . '/edit') }}" class="btn btn-primary"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp; Update</a>
                 </div>
             </div>
         </div>

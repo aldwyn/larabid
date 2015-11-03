@@ -26,8 +26,8 @@
                 </li>
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"
 						aria-hidden="true"></span>&nbsp; Hello,
-						@if (false)
-							<strong>${pageContext.request.userPrincipal.name}!</strong>
+						@if (Auth::check())
+							<strong>{{ Auth::user()->name }}!</strong>
 						@else
 							<strong>guest!</strong>
 						@endif
@@ -36,11 +36,11 @@
                         @if (true)
                             <li><a href="{{ asset('/item/create') }}">Add an item for auction</a></li>
                             <li role="separator" class="divider"></li>
-                            @if (false)
-	                            <li><a href="">Logout</a></li>
+                            @if (Auth::check())
+	                            <li><a href="{{ asset('/auth/logout') }}">Logout</a></li>
 	                        @else
-                            	<li><a href="{{ asset('/login') }}">Sign in</a></li>
-                                <li><a href="{{ asset('/register') }}">Register</a></li>
+                            	<li><a href="{{ asset('/auth/login') }}">Sign in</a></li>
+                                <li><a href="{{ asset('/auth/register') }}">Register</a></li>
                             @endif
                         @endif
                     </ul>
@@ -49,8 +49,3 @@
         </div>
     </div>
 </nav>
-<script>
-function formSubmit() {
-    document.getElementById("logoutForm").submit();
-}
-</script>

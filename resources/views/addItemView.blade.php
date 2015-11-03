@@ -14,7 +14,8 @@
                 <h3>Add an item to auction...</h3>
             </div>
                 @include('templates/errors')
-                <form class="form-horizontal" action="" method="POST">
+                <form class="form-horizontal" action="{{ asset('/item') }}" method="POST">
+                    {!! csrf_field() !!}
                     <div class="form-group">
                         <label for="itemName" class="col-sm-3 control-label">Name of the item</label>
                         <div class="col-sm-9">

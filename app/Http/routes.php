@@ -11,21 +11,21 @@
 |
 */
 
-Route::get('/', 'ItemController@index');
-
-Route::get('/login', function() {
-	return view('login');
+// Index page
+Route::get('', function() {
+	return redirect()->route('dashboard');
 });
 
-Route::get('/register', function() {
-	return view('signup');
-});
+Route::get('dashboard', ['as' => 'dashboard', 'uses' => 'ItemController@index']);
 
 // Authentication routes...
+Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 // Registration routes...
+Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
+// Item resource controller
 Route::resource('item', 'ItemController');

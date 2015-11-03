@@ -14,24 +14,21 @@
                 <h3>Update an item to auction...</h2>
             </div>
             @include('templates/errors')
-            <form class="form-horizontal" action="<c:url value='/updateItem' />" method="POST">
-                <div class="form-group">
-                    <label for="itemId" class="col-sm-3 control-label">Item Id.</label>
-                    <div class="col-sm-9">
-                        <input type="number" class="form-control" id="itemId" name="item_id" placeholder="E.g. 199" value="{{ $item->id }}" />
-                    </div>
-                </div>
+            <form class="form-horizontal" action="{{ asset('/item/' . $item->id) }}" method="POST">
+                {!! csrf_field() !!}
+                <input type="hidden" name="_method" value="PUT">
+                <input type="hidden" name="id" value="{{ $item->id }}">
                 <div class="form-group">
                     <label for="itemName" class="col-sm-3 control-label">Name of the item</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="itemName" name="item_name" placeholder="E.g. Toothbrush" value="{{ $item->name }}" />
+                        <input type="text" class="form-control" id="itemName" name="name" placeholder="E.g. Toothbrush" value="{{ $item->name }}" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="itemDescription" class="col-sm-3 control-label">Item description
                     </label>
                     <div class="col-sm-9">
-                        <textarea rows="2" class="form-control" id="itemDescription" name="item_description" placeholder="Write a little persuading description about the item...">{{ $item->description }}</textarea>
+                        <textarea rows="2" class="form-control" id="itemDescription" name="description" placeholder="Write a little persuading description about the item...">{{ $item->description }}</textarea>
                     </div>
                 </div>
                 <div class="form-group">

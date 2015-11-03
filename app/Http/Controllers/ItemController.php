@@ -2,6 +2,7 @@
 
 namespace LaraBid\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
 use LaraBid\Http\Requests;
 use LaraBid\Http\Controllers\Controller;
@@ -21,7 +22,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        return view('index', ['items' => Item::all()]);
+        return response()->view('index', ['items' => Item::all()]);
     }
 
     /**
@@ -31,7 +32,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        return view('addItemView');
+        return response()->view('addItemView');
     }
 
     /**
@@ -49,14 +50,15 @@ class ItemController extends Controller
             'start_bid_datetime' => 'required',
             'end_bid_datetime' => 'required|different:start_bid_datetime',
         ]);
-        $item = Item::create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'start_bid_amount' => $request->start_bid_amount,
-            'start_bid_datetime' => $request->start_bid_datetime,
-            'end_bid_datetime' => $request->end_bid_datetime,
-        ]);
-        return redirect()->route('item', ['id' => $item->id]);
+        $item = new Item;
+        $item->name = $request->name;
+        $item->description = $request->description;
+        $item->start_bid_amount = $request->start_bid_amount;
+        $item->start_bid_datetime = date('Y-m-d H:i:s', strtotime($request->start_bid_datetime));
+        $item->end_bid_datetime = date('Y-m-d H:i:s', strtotime($request->end_bid_datetime));
+        $item->auctioneer()->associate(Auth::user());
+        $item->save();
+        return redirect()->route('item.show', ['id' => $item->id]);
     }
 
     /**
@@ -67,7 +69,7 @@ class ItemController extends Controller
      */
     public function show($id)
     {
-        return view('itemView', ['item' => Item::findOrFail($id)]);
+        return response()->view('itemView', ['item' => Item::findOrFail($id)]);
     }
 
     /**
@@ -78,7 +80,7 @@ class ItemController extends Controller
      */
     public function edit($id)
     {
-        return view('updateItemView', ['item' => Item::findOrFail($id)]);
+        return response()->view('updateItemView', ['item' => Item::findOrFail($id)]);
     }
 
     /**
@@ -97,14 +99,14 @@ class ItemController extends Controller
             'start_bid_datetime' => 'required',
             'end_bid_datetime' => 'required|different:start_bid_datetime',
         ]);
-        $item = Item::create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'start_bid_amount' => $request->start_bid_amount,
-            'start_bid_datetime' => $request->start_bid_datetime,
-            'end_bid_datetime' => $request->end_bid_datetime,
-        ]);
-        return redirect()->route('item', ['id' => $item->id]);
+        $item = Item::find($request->id);
+        $item->name = $request->name;
+        $item->description = $request->description;
+        $item->start_bid_amount = $request->start_bid_amount;
+        $item->start_bid_datetime = date('Y-m-d H:i:s', strtotime($request->start_bid_datetime));
+        $item->end_bid_datetime = date('Y-m-d H:i:s', strtotime($request->end_bid_datetime));
+        $item->save();
+        return redirect()->route('item.show', ['id' => $item->id]);
     }
 
     /**
@@ -116,6 +118,7 @@ class ItemController extends Controller
     public function destroy($id)
     {
         Item::destroy($id);
-        return redirect()->route('item');
+        return redirect()->route('dashboard');
     }
+
 }
