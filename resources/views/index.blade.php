@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Fsoft Bidding Engine</title>
+    <title>LaraBid | Dashboard</title>
     @include('templates/metadata')
 </head>
 

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Add an Item | Fsoft Bidding Engine</title>
+    <title>LaraBid | {{ $item->name }} </title>
     @include('templates/metadata')
 </head>
 
