@@ -7,14 +7,14 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href=""><span
+                <li class="active"><a href="{{ asset('/mybids') }}"><span
 						class="glyphicon glyphicon-fire" aria-hidden="true"></span> My
 						Bids</a></li>
                 <li>
-                    <form class="navbar-form navbar-left" role="search">
+                    <form action="{{ asset('/search') }}" class="navbar-form navbar-left" role="search">
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search for items..." />
+                                <input type="text" class="form-control" name="query" placeholder="Search for items..." />
                                 <span class="input-group-btn">
 									<button type="submit" class="btn btn-info">
 										<span class="glyphicon glyphicon-search" aria-hidden="true"></span> &nbsp; Submit

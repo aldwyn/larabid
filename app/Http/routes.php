@@ -16,7 +16,11 @@ Route::get('', function() {
 	return redirect()->route('dashboard');
 });
 
-Route::get('dashboard', ['as' => 'dashboard', 'uses' => 'ItemController@index']);
+Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'ItemController@index']);
+
+Route::get('/mybids', ['as' => 'mybids', 'uses' => 'BidController@index']);
+
+Route::get('/search', 'ItemController@search');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
@@ -29,3 +33,5 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 // Item resource controller
 Route::resource('item', 'ItemController');
+
+Route::resource('bid', 'BidController');

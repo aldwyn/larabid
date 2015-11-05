@@ -6,3 +6,4 @@
 <meta name="author" content="Aldwyn Cabarrubias">
 <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+<link rel="shortcut icon" href="{{ asset('assets/img/cart.ico') }}">

@@ -3,6 +3,7 @@
 namespace LaraBid\Http\Controllers;
 
 use Auth;
+use Input;
 use Illuminate\Http\Request;
 use LaraBid\Http\Requests;
 use LaraBid\Http\Controllers\Controller;
@@ -120,5 +121,18 @@ class ItemController extends Controller
         Item::destroy($id);
         return redirect()->route('dashboard');
     }
+
+    /**
+     * Search for items.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function search()
+    {
+        $query = Input::get('query');
+        $itemSearch = Item::where('name', 'LIKE', '%$query%')->get();
+        return response()->view('index', ['items' => $itemSearch]);
+    }    
 
 }

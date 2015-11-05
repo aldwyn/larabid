@@ -37,4 +37,15 @@ class User extends Model implements AuthenticatableContract,
      */
     protected $hidden = ['password', 'remember_token'];
 
+    /**
+     * Get the items of the current user.
+     */
+    public function items() {
+        return $this->hasMany('LaraBid\Item', 'auctioneer_id');
+    }
+
+    public function bids() {
+        return $this->hasMany('LaraBid\Bid', 'bidder_id');
+    }
+
 }
