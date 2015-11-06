@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+ <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="{{ asset('/') }}"><span
@@ -9,7 +9,11 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="{{ asset('/mybids') }}"><span
 						class="glyphicon glyphicon-fire" aria-hidden="true"></span> My
-						Bids</a></li>
+						Bids</a>
+                </li>
+                <li ><a href="https://github.com/aldwyn/larabid"><span
+                        class="glyphicon glyphicon-apple" aria-hidden="true"></span> Fork me on Github</a>
+                </li>
                 <li>
                     <form action="{{ asset('/search') }}" class="navbar-form navbar-left" role="search">
                         <div class="form-group">
