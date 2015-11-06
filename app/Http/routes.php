@@ -34,4 +34,5 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 // Item resource controller
 Route::resource('item', 'ItemController');
 
+// Bid controller
 Route::resource('bid', 'BidController');
