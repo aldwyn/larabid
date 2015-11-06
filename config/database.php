@@ -54,10 +54,10 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => 'localhost',
-            'database'  => 'larabid',
-            'username'  => 'root',
-            'password'  => '',
+            'host'      => 'sql6.freemysqlhosting.net',
+            'database'  => 'sql695615',
+            'username'  => 'sql695615',
+            'password'  => 'tV5%dP9!',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
