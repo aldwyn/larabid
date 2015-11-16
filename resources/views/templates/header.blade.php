@@ -1,18 +1,26 @@
  <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{{ asset('/') }}"><span
-				class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
-				LaraBid</a>
+            <a class="navbar-brand" 
+            @if (Auth::check())
+                href="{{ asset('/dashboard') }}"
+            @else
+                href="{{ asset('/') }}"
+            @endif
+            ><span
+				class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+				<em>LaraBid</em></a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="{{ asset('/mybids') }}"><span
-						class="glyphicon glyphicon-fire" aria-hidden="true"></span> My
-						Bids</a>
-                </li>
+                @if (Auth::check())
+                    <li class="active"><a href="{{ asset('/mybids') }}"><span
+    						class="glyphicon glyphicon-fire" aria-hidden="true"></span> My
+    						Bids</a>
+                    </li>
+                @endif
                 <li ><a href="https://github.com/aldwyn/larabid"><span
-                        class="glyphicon glyphicon-apple" aria-hidden="true"></span> Fork me on Github</a>
+                        class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>&nbsp; Fork me on Github</a>
                 </li>
                 <li>
                     <form action="{{ asset('/search') }}" class="navbar-form navbar-left" role="search">
@@ -20,7 +28,7 @@
                             <div class="input-group">
                                 <input type="text" class="form-control" name="query" placeholder="Search for items..." />
                                 <span class="input-group-btn">
-									<button type="submit" class="btn btn-info">
+									<button type="submit" class="btn btn-warning">
 										<span class="glyphicon glyphicon-search" aria-hidden="true"></span> &nbsp; Submit
                                 </button>
                                 </span>

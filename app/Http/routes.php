@@ -12,9 +12,9 @@
 */
 
 // Index page
-Route::get('', function() {
+Route::get('', ['as' => 'index', function() {
 	return response()->view('index');
-});
+}]);
 
 Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'ItemController@index']);
 

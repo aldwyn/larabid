@@ -21,4 +21,15 @@ footer {
 #data-table {
     overflow: auto;
     height: 340px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#larabidJumbotron {
+    text-align: right;
+    margin-top: 40px;
+    padding: 50px 40px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #E2C9DB;
+    border-radius: 100%;
 }
