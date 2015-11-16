@@ -21,7 +21,7 @@ class BidController extends Controller
     public function index()
     {
         $items = Item::where('bidder_id', Auth::user()->id);
-        return response()->view('index', ['items' => $items]);
+        return response()->view('itemList', ['items' => $items]);
     }
 
     /**

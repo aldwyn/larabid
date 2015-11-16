@@ -7,3 +7,9 @@
 <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 <link rel="shortcut icon" href="{{ asset('assets/img/cart.ico') }}">
+<style type="text/css">
+	body {
+		background-image: url({{ asset('assets/img/blur.jpg') }});
+		background-size: cover;
+	}
+</style>

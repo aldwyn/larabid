@@ -54,10 +54,10 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => 'localhost',
-            'database'  => 'larabid',
-            'username'  => 'root',
-            'password'  => '',
+            'host'      => 'larabid.coolpage.biz',
+            'database'  => '1046522db2',
+            'username'  => '1046522',
+            'password'  => 'phenix16',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',

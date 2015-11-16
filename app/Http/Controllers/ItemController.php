@@ -23,7 +23,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        return response()->view('index', ['items' => Item::all()]);
+        return response()->view('itemList', ['items' => Item::all()]);
     }
 
     /**
@@ -132,7 +132,7 @@ class ItemController extends Controller
     {
         $query = Input::get('query');
         $itemSearch = Item::where('name', 'LIKE', '%$query%')->get();
-        return response()->view('index', ['items' => $itemSearch]);
+        return response()->view('itemList', ['items' => $itemSearch]);
     }    
 
 }

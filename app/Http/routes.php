@@ -13,7 +13,7 @@
 
 // Index page
 Route::get('', function() {
-	return redirect()->route('dashboard');
+	return response()->view('index');
 });
 
 Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'ItemController@index']);
