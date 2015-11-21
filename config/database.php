@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'sqlite'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,10 +54,10 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => 'larabid.coolpage.biz',
-            'database'  => '1046522db2',
-            'username'  => '1046522',
-            'password'  => 'phenix16',
+            'host'      => 'localhost',
+            'database'  => 'larabid',
+            'username'  => 'root',
+            'password'  => 'busyminds',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
