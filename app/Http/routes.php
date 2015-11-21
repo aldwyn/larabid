@@ -20,6 +20,8 @@ Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'ItemController@index']
 
 Route::get('/mybids', ['as' => 'mybids', 'uses' => 'BidController@index']);
 
+Route::get('/myitems', ['as' => 'myitems', 'uses' => 'ItemController@user_items']);
+
 Route::get('/search', 'ItemController@search');
 
 // Authentication routes...

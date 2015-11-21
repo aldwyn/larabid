@@ -23,7 +23,12 @@ class ItemController extends Controller
      */
     public function index()
     {
-        return response()->view('itemList', ['items' => Item::all()]);
+	return response()->view('itemList', ['items' => Item::all()]);
+    }
+
+    public function user_items()
+    {
+	return response()->view('itemList', ['items' => Item::where('auctioneer_id', Auth::user()->id)]);
     }
 
     /**

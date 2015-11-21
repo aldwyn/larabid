@@ -14,14 +14,15 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 @if (Auth::check())
-                    <li class="active"><a href="{{ asset('/mybids') }}"><span
-    						class="glyphicon glyphicon-fire" aria-hidden="true"></span> My
+                <li><a href="{{ asset('/mybids') }}"><span
+    						class="glyphicon glyphicon-tag" aria-hidden="true"></span> My
     						Bids</a>
                     </li>
-                @endif
-                <li ><a href="https://github.com/aldwyn/larabid"><span
-                        class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>&nbsp; Fork me on Github</a>
-                </li>
+		<li><a href="{{ asset('/myitems') }}"><span
+    						class="glyphicon glyphicon-lock" aria-hidden="true"></span> My
+    						Items</a>
+                    </li>
+                @endif                
                 <li>
                     <form action="{{ asset('/search') }}" class="navbar-form navbar-left" role="search">
                         <div class="form-group">
